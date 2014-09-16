@@ -13,6 +13,7 @@ try:
         },
         ROOT_URLCONF="django_security_questions.urls",
         INSTALLED_APPS=[
+            "django.contrib.sessions",
             "django.contrib.auth",
             "django.contrib.contenttypes",
             "django.contrib.sites",
@@ -20,6 +21,13 @@ try:
         ],
         SITE_ID=1,
         NOSE_ARGS=['-s'],
+        MIDDLEWARE_CLASSES=[
+            "django.contrib.sessions.middleware.SessionMiddleware"
+        ],
+        SECRET_KEY="something-something",
+        QUESTIONS_NUM_REGISTER=2,
+        QUESTIONS_NUM_RESET=2,
+        QUESTIONS_CASE_SENSITIVE=True,
     )
 
     try:
